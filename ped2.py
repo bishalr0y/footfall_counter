@@ -57,7 +57,7 @@ def nonMaxSuppression(boxes, overlap_threshold):
     return boxes[picked_indexes]
 
 def motionDetection():
-    cap = cv.VideoCapture('crowd.mp4')
+    cap = cv.VideoCapture('in.avi')
     ret, frame1 = cap.read()
     ret, frame2 = cap.read()
 
@@ -77,7 +77,7 @@ def motionDetection():
 
         for contour in contours:
             (x, y, w, h) = cv.boundingRect(contour)
-            if cv.contourArea(contour) < 500:
+            if cv.contourArea(contour) < 600:
                 continue
             boxes.append([x, y, x + w, y + h])
 
